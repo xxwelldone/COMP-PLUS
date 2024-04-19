@@ -1,0 +1,6 @@
+@COMP__HostAddress = http://localhost:5223
+
+GET {{COMP__HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
