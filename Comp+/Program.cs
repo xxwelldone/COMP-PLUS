@@ -1,4 +1,7 @@
 
+using COMP_.Context;
+using Microsoft.EntityFrameworkCore;
+
 namespace COMP_
 {
     public class Program
@@ -13,6 +16,8 @@ namespace COMP_
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddDbContext<PostgreeContext>(opt => opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
             var app = builder.Build();
 

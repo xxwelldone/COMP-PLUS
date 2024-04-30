@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime;
+using COMP_.Entities.Enum;
 
 namespace COMP_.Entities
 {
@@ -12,11 +14,14 @@ namespace COMP_.Entities
         [Required]
         public string Email { get; set; }
         [Required]
-        public string Password { get; set; }
-        public string Location { get; set; }
-        public bool IsComposting { get; set; } = false;
+        public Profile Profile { get; set; }
+        [Required]
+        public string CPF { get; set; }
 
-        public IEnumerable<User> MatchedUser;
+
+
+
+
 
     }
 }
