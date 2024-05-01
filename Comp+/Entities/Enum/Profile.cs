@@ -3,6 +3,6 @@
     public enum Profile
     {
         Composter,
-        ToCompost
+        WannaCompost
     }
 }

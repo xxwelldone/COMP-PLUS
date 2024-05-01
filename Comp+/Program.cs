@@ -1,5 +1,9 @@
 
 using COMP_.Context;
+using COMP_.Repository;
+using COMP_.Repository.Interface;
+using COMP_.UOW;
+using COMP_.UOW.Interface;
 using Microsoft.EntityFrameworkCore;
 
 namespace COMP_
@@ -17,6 +21,9 @@ namespace COMP_
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<PostgreeContext>(opt => opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+           
 
 
             var app = builder.Build();
