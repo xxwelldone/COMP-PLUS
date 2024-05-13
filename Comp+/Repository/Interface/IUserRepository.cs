@@ -4,7 +4,8 @@ namespace COMP_.Repository.Interface
 {
     public interface IUserRepository : IBaseRespository<User>
     {
-        Task<IEnumerable<User>> GetComposters();
-        Task<IEnumerable<User>> GetWannaCompost();
+        Task<IEnumerable<User>> GetCompostersAsync();
+        Task<IEnumerable<User>> GetWannaCompostAsync();
+        Task<IEnumerable<User>> GetByZIP(string zip);
     }
 }

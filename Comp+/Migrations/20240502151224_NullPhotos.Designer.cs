@@ -2,6 +2,7 @@
 using COMP_.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -10,9 +11,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace COMP_.Migrations
 {
     [DbContext(typeof(PostgreeContext))]
-    partial class PostgreeContextModelSnapshot : ModelSnapshot
+    [Migration("20240502151224_NullPhotos")]
+    partial class NullPhotos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,10 +32,6 @@ namespace COMP_.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("CEP")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("CPF")
                         .IsRequired()
                         .HasMaxLength(11)
@@ -43,10 +42,6 @@ namespace COMP_.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("text");
 

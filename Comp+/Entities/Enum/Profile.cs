@@ -2,7 +2,7 @@
 {
     public enum Profile
     {
-        Composter,
-        WannaCompost
+        Composter =1,
+        WannaCompost =2,
     }
 }

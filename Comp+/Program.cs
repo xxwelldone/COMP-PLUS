@@ -1,4 +1,5 @@
 
+using System.Text.Json.Serialization;
 using COMP_.Context;
 using COMP_.Repository;
 using COMP_.Repository.Interface;
@@ -15,15 +16,16 @@ namespace COMP_
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
-            builder.Services.AddControllers();
+            // Adding converter so ENUMS will display the actual names instead of their numbers
+            builder.Services.AddControllers().AddJsonOptions(opt => { opt.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()); });
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<PostgreeContext>(opt => opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-           
+
+
 
 
             var app = builder.Build();
