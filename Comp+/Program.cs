@@ -26,7 +26,7 @@ namespace COMP_
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 
-
+              
 
             var app = builder.Build();
 
